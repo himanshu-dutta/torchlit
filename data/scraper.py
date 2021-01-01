@@ -21,21 +21,21 @@ def init_driver(fetcher):
 
 
 @init_driver
-def google_image_scraper(search_term: str, scroll_down_by: int = 10, driver: webdriver.chrome.webdriver.WebDriver = None) -> list:
+def google_images_scraper(search_term: str, min_image_count: int = 10, driver: webdriver.chrome.webdriver.WebDriver = None) -> list:
     base_url = "https://www.google.com/imghp?hl=en"
     driver.get(base_url)
     search_form = driver.find_element_by_name("q")
     search_form.send_keys(search_term)
     search_form.submit()
-    for _ in tqdm(range(scroll_down_by)):
+    urls = []
+    while len(urls) < min_image_count:
         driver.execute_script(
             "window.scrollTo(0, document.body.scrollHeight);")
-    urls = driver.execute_script(
-        "return Array.from(document.querySelectorAll(\'.rg_i\')).map(el=> el.hasAttribute(\'data-src\')?el.getAttribute(\'data-src\'):el.getAttribute(\'data-iurl\'));")
+        urls = driver.execute_script(
+            "return Array.from(document.querySelectorAll(\'.rg_i\')).map(el=> el.hasAttribute(\'data-src\')?el.getAttribute(\'data-src\'):el.getAttribute(\'data-iurl\'));")
 
-    while None in urls:
-        urls.remove(None)
-
+        while None in urls:
+            urls.remove(None)
     return urls
 
 
