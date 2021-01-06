@@ -1,4 +1,7 @@
-pytest
+pytest==6.2.1
 selenium==3.141.0
+torch==1.7.1+cpu
+torchaudio==0.7.2
+torchvision==0.8.2+cpu
 tqdm==4.55.0
 webdriver-manager==3.2.2
