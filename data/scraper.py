@@ -33,6 +33,9 @@ def google_images_scraper(
     search_form.send_keys(search_term)
     search_form.submit()
     urls = []
+    last_height = driver.execute_script("return document.body.scrollHeight")
+
+    reached_page_end = False
     while len(urls) < min_image_count:
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         urls = driver.execute_script(
@@ -41,6 +44,13 @@ def google_images_scraper(
 
         while None in urls:
             urls.remove(None)
+
+        new_height = driver.execute_script("return document.body.scrollHeight")
+        if last_height == new_height:
+            break
+        else:
+            last_height = new_height
+
     return urls
 
 
