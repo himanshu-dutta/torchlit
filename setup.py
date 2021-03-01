@@ -7,7 +7,7 @@ with open("README.md") as f:
 if __name__ == "__main__":
     setup(
         name="torchlit",
-        version="0.1.1",
+        version="0.1.2",
         description="torchlit - thin wrappers for Pytorch",
         long_description=long_description,
         long_description_content_type="text/markdown",
