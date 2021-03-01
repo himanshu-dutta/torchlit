@@ -4,7 +4,9 @@
 
 With every project, I intend to add functionalities that are fairly genralized to be put as a boilerplate for different utilities.
 
-## Sample usage
+It allows you to write less code while focusing on the model itself, rather than its verbosity and how the model is retrieved. Along with this, it consists of data utilities which can be used for purposes of loading data from dataframe, or from a folder for inference, etc.
+
+### Sample usage
 
 ```
 !pip install torchlit --q
@@ -90,4 +92,51 @@ for epoch in range(EPOCHS):
     Epoch [7]: train_loss: 2.3065271377563477, val_loss: 2.3060548305511475, val_acc: 0.0
     Epoch [8]: train_loss: 2.3065271377563477, val_loss: 2.3060548305511475, val_acc: 0.0
     Epoch [9]: train_loss: 2.3065271377563477, val_loss: 2.3060548305511475, val_acc: 0.0
+```
+
+```Python
+model.history
+```
+
+```
+[{'epoch': 0,
+  'train_loss': 2.3326268196105957,
+  'val_acc': 0.0,
+  'val_loss': 2.2232437133789062},
+ {'epoch': 1,
+  'train_loss': 2.3326268196105957,
+  'val_acc': 0.0,
+  'val_loss': 2.2232437133789062},
+ {'epoch': 2,
+  'train_loss': 2.3326268196105957,
+  'val_acc': 0.0,
+  'val_loss': 2.2232437133789062},
+ {'epoch': 3,
+  'train_loss': 2.3326268196105957,
+  'val_acc': 0.0,
+  'val_loss': 2.2232437133789062},
+ {'epoch': 4,
+  'train_loss': 2.3326268196105957,
+  'val_acc': 0.0,
+  'val_loss': 2.2232437133789062},
+ {'epoch': 5,
+  'train_loss': 2.3326268196105957,
+  'val_acc': 0.0,
+  'val_loss': 2.2232437133789062},
+ {'epoch': 6,
+  'train_loss': 2.3326268196105957,
+  'val_acc': 0.0,
+  'val_loss': 2.2232437133789062},
+ {'epoch': 7,
+  'train_loss': 2.3326268196105957,
+  'val_acc': 0.0,
+  'val_loss': 2.2232437133789062},
+ {'epoch': 8,
+  'train_loss': 2.3326268196105957,
+  'val_acc': 0.0,
+  'val_loss': 2.2232437133789062},
+ {'epoch': 9,
+  'train_loss': 2.3326268196105957,
+  'val_acc': 0.0,
+  'val_loss': 2.2232437133789062}]
 ```
