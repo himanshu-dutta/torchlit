@@ -6,20 +6,36 @@ from torch.utils.data import Dataset
 
 
 class ImageDatasetFromDF(Dataset):
+    r"""Creates image dataset from a `pandas.DataFrame` instance.
+
+    Parameters
+    ----------
+    - `root_directory`: str
+        directory for image files
+    - `dataframe`: pandas.DataFrame
+        dataframe object with image filename and labels.
+    - `image_file_col`: str
+        column name of image filename.
+    - `label_col`: str
+        column name of label column
+    - `mapping`: dict
+        labels to class idx mapping
+    """
+
     def __init__(
         self,
         root_directory,
         dataframe,
-        image_file_label,
-        labels,
+        image_file_col,
+        label_col,
         mapping,
         transforms=None,
     ):
         self.df = dataframe.reset_index(drop=True)
         self.dir = root_directory
         self.tfrm = transforms
-        self.labels = labels
-        self.ifl = image_file_label
+        self.labels = label_col
+        self.ifl = image_file_col
 
         self.class_to_label = mapping
 
@@ -39,6 +55,13 @@ class ImageDatasetFromDF(Dataset):
 
 
 class ImageDatabunch(Dataset):
+    r"""Creates an image dataset from `img_dir` parameter. Useful for making prediction on a image folder.
+    Parameters
+    ----------
+    - `root_directory`: str
+        directory for image files
+    """
+
     def __init__(self, img_dir, transforms=None):
         self.dir = img_dir
         self.image_files = [
