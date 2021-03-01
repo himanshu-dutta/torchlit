@@ -4,6 +4,8 @@
 
 With every project, I intend to add functionalities that are fairly genralized to be put as a boilerplate for different utilities.
 
+## Sample usage
+
 ```python
 import torch.nn as nn
 import torch.nn.functional as F
